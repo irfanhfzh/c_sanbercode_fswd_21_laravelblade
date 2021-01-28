@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddJawabanIdToKomentarJawaban extends Migration
+class AddFkToKomentarJawaban extends Migration
 {
     /**
      * Run the migrations.
@@ -15,7 +15,10 @@ class AddJawabanIdToKomentarJawaban extends Migration
     {
         Schema::table('komentar_jawaban', function (Blueprint $table) {
             $table->unsignedBigInteger('jawaban_id');
+            $table->unsignedBigInteger('profil_id');
+            
             $table->foreign('jawaban_id')->references('id')->on('jawaban');
+            $table->foreign('profil_id')->references('id')->on('profil');
         });
     }
 
@@ -27,7 +30,11 @@ class AddJawabanIdToKomentarJawaban extends Migration
     public function down()
     {
         Schema::table('komentar_jawaban', function (Blueprint $table) {
-            //
+            $table->dropForeign(['jawaban_id']);
+            $table->dropForeign(['profil_id']);
+
+            $table->dropColumn(['jawaban_id']);
+            $table->dropColumn(['profil_id']);
         });
     }
 }

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddProfilIdToLikeDislikeJawaban extends Migration
+class AddFkToJawaban extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,11 @@ class AddProfilIdToLikeDislikeJawaban extends Migration
      */
     public function up()
     {
-        Schema::table('like_dislike_jawaban', function (Blueprint $table) {
+        Schema::table('jawaban', function (Blueprint $table) {
+            $table->unsignedBigInteger('pertanyaan_id');
             $table->unsignedBigInteger('profil_id');
+
+            $table->foreign('pertanyaan_id')->references('id')->on('pertanyaan');
             $table->foreign('profil_id')->references('id')->on('profil');
         });
     }
@@ -26,8 +29,12 @@ class AddProfilIdToLikeDislikeJawaban extends Migration
      */
     public function down()
     {
-        Schema::table('like_dislike_jawaban', function (Blueprint $table) {
-            //
+        Schema::table('jawaban', function (Blueprint $table) {
+            $table->dropForeign(['pertanyaan_id']);
+            $table->dropForeign(['profil_id']);
+
+            $table->dropColumn(['pertanyaan_id']);
+            $table->dropColumn(['profil_id']);
         });
     }
 }
