@@ -56,6 +56,35 @@
               <p>Documentation</p>
             </a>
           </li>
+          <li class="nav-item">
+            <a href="/pertanyaan" class="nav-link">
+              <i class="nav-icon fas fa-edit"></i>
+              <p>Pertanyaan</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+                Laravel CRUD
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview" style="display: none;">
+              <li class="nav-item">
+                <a href="/pertanyaan/create" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Laravel CRUD Query Builder</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="../../index2.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Laravel CRUD Eloquent ORM</p>
+                </a>
+              </li>
+            </ul>
+          </li>
         </ul>
       </nav>
       <!-- /.sidebar-menu -->

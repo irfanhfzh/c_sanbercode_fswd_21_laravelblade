@@ -24,3 +24,11 @@ Route::get('/master', function(){
 Route::get('/data-table', function(){
     return view('items.index');
 });
+
+Route::get('/pertanyaan', 'PertanyaanController@index');
+Route::post('/pertanyaan', 'PertanyaanController@store');
+Route::get('/pertanyaan/create', 'PertanyaanController@create');
+Route::get('/pertanyaan/{id}', 'PertanyaanController@show');
+Route::get('/pertanyaan/{id}/edit', 'PertanyaanController@edit');
+Route::put('/pertanyaan/{id}', 'PertanyaanController@update');
+Route::delete('/pertanyaan/{id}', 'PertanyaanController@destroy');
