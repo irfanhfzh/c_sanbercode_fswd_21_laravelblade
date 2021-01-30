@@ -1,3 +1,6 @@
+## Task Preview Laravel CRUD Query Builder
+![](crudquery.gif)
+
 ## Task Preview Laravel Blade
 ![](laravelblade.gif)
 
